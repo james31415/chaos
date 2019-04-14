@@ -15,7 +15,9 @@ echo Cannot setup environment
 exit /b 1
 
 :run
-if not exist ..\bin mkdir ..\bin
-
+if not exist ..\bin (
+  mkdir ..\bin
+	copy plot.* ..\bin
+)
 set CommonCompilerFlags=-nologo -W4 -Od -Zi -wd4996
 cl %CommonCompilerFlags% -Fe..\bin\main.exe main.cpp
